@@ -428,7 +428,7 @@ function Videos() {
             <div className="container">
                 <div className="row">
                     {videos.map((video) => (
-                        <div className="col-xs-24 col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-4"
+                        <div className="col-xs-24 col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-6"
                              key={video.id}>
                             <div className="video-card">
                                 <div className="img">
