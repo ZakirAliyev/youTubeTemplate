@@ -1,0 +1,81 @@
+#leftMenu {
+  height: 100vh;
+  color: #f1f1f1;
+  max-width: 240px;
+  width: 100%;
+  padding: 16px;
+  margin-top: 60px;
+  overflow-y: hidden; /* Initially hide the scrollbar */
+  transition: overflow-y 0.4s ease; /* Smooth transition for scrollbar visibility */
+
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+  &:hover {
+    overflow-y: auto; /* Show scrollbar on hover */
+  }
+
+  .selected {
+    background-color: #272727;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+      background-color: #272727;
+    }
+
+    .textWrapper {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      p {
+        font-size: 14px;
+      }
+
+      .img {
+        width: 24px;
+        height: 24px;
+
+        img {
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+    }
+
+    .icon1 {
+      font-size: 16px;
+      color: #FF0033;
+    }
+  }
+
+  .section-title {
+    h2 {
+      font-size: 16px;
+      margin: 10px 16px;
+    }
+  }
+
+  .line {
+    height: 1px;
+    background-color: #3f3f3f;
+    margin: 15px 0;
+  }
+}
