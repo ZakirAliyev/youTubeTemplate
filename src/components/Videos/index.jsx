@@ -1,1421 +1,468 @@
-import './index.scss'
+import './index.scss';
 import {BsThreeDotsVertical} from "react-icons/bs";
 import {FaCheckCircle} from "react-icons/fa";
 import {GoDotFill} from "react-icons/go";
 
 function Videos() {
+    const videos = [
+        {
+            "id": "1",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Z-4BypYZ1FQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb3T60wbru5eRSJGPuvVB1Zrsn1A",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "2",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "3",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "4",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "5",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "6",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "7",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "8",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "1",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Z-4BypYZ1FQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb3T60wbru5eRSJGPuvVB1Zrsn1A",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "2",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "3",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "4",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "5",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "6",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "7",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "8",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "1",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Z-4BypYZ1FQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb3T60wbru5eRSJGPuvVB1Zrsn1A",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "2",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "3",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "4",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "5",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "6",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "7",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "8",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "1",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Z-4BypYZ1FQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDb3T60wbru5eRSJGPuvVB1Zrsn1A",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "2",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "3",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "4",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "5",
+            "title": "Big Buck Bunny",
+            "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Vlc Media Player",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "6",
+            "title": "For Bigger Blazes",
+            "thumbnailUrl": "https://i.ytimg.com/vi/Dr9C2oswZfA/maxresdefault.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+        {
+            "id": "7",
+            "title": "For Bigger Escape",
+            "thumbnailUrl": "https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg",
+            "duration": "8:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "T-Series Regional",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+            "subscriber": "25254545 Subscribers",
+            "isLive": true
+        },
+        {
+            "id": "8",
+            "title": "The first Blender Open Movie from 2006",
+            "thumbnailUrl": "https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp",
+            "duration": "12:18",
+            "uploadTime": "May 9, 2011",
+            "views": "24,969,123",
+            "author": "Blender Inc.",
+            "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+            "subscriber": "25254545 Subscribers",
+            "isLive": false
+        },
+    ]
+
     return (
-        <section id={"videos"}>
-            <div className={"container"}>
-                <div className={"row"}>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
+        <section id="videos">
+            <div className="container">
+                <div className="row">
+                    {videos.map((video) => (
+                        <div className="col-xs-24 col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-4"
+                             key={video.id}>
+                            <div className="video-card">
+                                <div className="img">
+                                    <img src={video.thumbnailUrl} alt={video.title}/>
+                                    <span className="duration">{video.duration}</span>
                                 </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
+                                <div className="wrapper">
+                                    <div className={"wrapper1"}>
+                                        <div className="profileImg">
+                                            <img src="https://avatars.githubusercontent.com/u/106933941"
+                                                 alt={video.author}/>
+                                        </div>
+                                        <div className="textWrapper">
+                                            <h2>{video.title}</h2>
+                                            <div className="verifyWrapper">
+                                                <h3 style={{
+                                                    marginTop: '5px'
+                                                }}>{video.author}</h3>
+                                                {video.isLive && <FaCheckCircle className="icon"/>}
+                                            </div>
+                                            <h3>
+                                                {video.views} baxış
+                                                <GoDotFill className="dot-icon"/>
+                                                {video.uploadTime}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div className="dots">
+                                        <BsThreeDotsVertical className="icon"/>
+                                    </div>
                                 </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
                             </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"col-3 col-md-4 col-sm-6 col-xs-12"}>
-                        <div className={"img"}>
-                            <img
-                                src={"https://i.ytimg.com/vi/TF_7B0rAi1g/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxPw7rIJ5o_zuGdpzP7D58NFT3JA"}
-                                alt={"Youtube"}/>
-                        </div>
-                        <div className={"wrapper"}>
-                            <div className={"profileImg"}>
-                                <img src={"https://avatars.githubusercontent.com/u/106933941"} alt={"Profile Image"}/>
-                            </div>
-                            <div className={"textWrapper"}>
-                                <h2>Türkiyə 0:0 Uels | UEFA Millətlər Liqası | ŞƏRHSİZ İCMAL</h2>
-                                <div className={"verifyWrapper"}>
-                                    <h3 style={{
-                                        marginTop: '5px'
-                                    }}>CBC Sport</h3>
-                                    <FaCheckCircle className={"icon"}/>
-                                </div>
-                                <h3>12K baxış
-                                    <GoDotFill style={{
-                                        fontSize: '8px',
-                                        marginLeft: '5px',
-                                        marginRight: '5px',
-                                    }}/>
-                                    18 saat öncə
-                                </h3>
-                            </div>
-                            <div className={"dots"}>
-                                <BsThreeDotsVertical className={"icon"}/>
-                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

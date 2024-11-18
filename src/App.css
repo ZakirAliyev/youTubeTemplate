@@ -1,4 +1,17 @@
 #appWrapper {
     display: flex;
     flex-direction: row;
+
+    .appWrapper1 {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow-y: auto;
+        margin: 60px auto 0;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+    }
 }
